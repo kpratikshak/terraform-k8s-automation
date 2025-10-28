@@ -1,0 +1,13 @@
+---
+- name: Deploy Petstore to Kubernetes
+  hosts: k8s_master
+  become: yes
+  
+  tasks:
+    - name: Copy K8s deployment manifest to master
+      copy:
+        src: /home/ubuntu/petstore-repo/kubernetes-deployment.yml # Assumes repo is cloned here
+        dest: /tmp/petstore-deployment.yml
+        
+    - name: Apply K8s deployment
+      command: kubectl apply -f /tmp/petstore-deployment.yml
