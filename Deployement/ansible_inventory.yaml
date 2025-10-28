@@ -1,0 +1,16 @@
+[jenkins]
+${jenkins_ip}
+
+[ansible_server]
+${ansible_ip}
+
+[k8s_master]
+${k8s_master_ip}
+
+[k8s_worker]
+${k8s_worker_ip}
+
+[all:vars]
+ansible_user = ubuntu
+# This private key file must exist on the Ansible server
+ansible_ssh_private_key_file = /home/ubuntu/petstore-key.pem 
